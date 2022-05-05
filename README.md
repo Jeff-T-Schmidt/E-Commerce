@@ -46,10 +46,10 @@ No testing information available for this application.
 
 ## Deployed
 
-- View the video link [here]()
+- View the video link [here](https://drive.google.com/file/d/1IYHscWvTcMTjbEnECu8CK0fQLdBizHyi/view)
 - [GitHub Repository](https://github.com/Jeff-T-Schmidt/E-Commerce)
 
-## Screenshot of the deployed application
+## Screenshot of the application
 
 ![Screenshot](https://user-images.githubusercontent.com/101135703/166862349-f2f9334f-8784-4766-a0d1-280a4dd474bc.png)
 
