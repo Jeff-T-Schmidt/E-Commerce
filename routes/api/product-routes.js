@@ -8,15 +8,26 @@ router.get('/', (req, res) => {
   // find all products
   // be sure to include its associated Category and Tag data
   Product.findAll({
-    includes:[Category, Tag]
-})
-  .then(dbCategory => {
-    res.json(dbCategory);
+    include: [
+      {
+        model: Category
+      },
+      {
+        model: Tag,
+        attributes: ['tag_name'],
+        through: ProductTag,
+        as: 'productTag_tag'
+      }
+    ]
   })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({ msg: "an error occured", err });
-  });
+
+    .then(dbCategory => {
+      res.json(dbCategory);
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ msg: "an error occured", err });
+    });
 });
 
 // get one product
@@ -24,7 +35,7 @@ router.get('/:id', (req, res) => {
   // find a single product by its `id`
   // be sure to include its associated Category and Tag data
   Product.findByPk(req.params.id, {
-    includes:[Category, Tag]
+    includes: [Category, Tag]
   })
     .then(dbProduct => {
       res.json(dbProduct);
@@ -118,10 +129,10 @@ router.delete('/:id', (req, res) => {
   }).then(delUser => {
     res.json(delUser);
   })
-  .catch(err => {
-    console.log(err);
-    res.status(500).json({ msg: "an error occured", err });
-  });
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ msg: "an error occured", err });
+    });
 });
 
 module.exports = router;
