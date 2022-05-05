@@ -4,7 +4,7 @@ const sequelize = require('./config/connection');
 
 const app = express();
 const PORT = process.env.PORT || 3002;
-const User = require("./models/User")
+const Category = require("./models/Category")
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
